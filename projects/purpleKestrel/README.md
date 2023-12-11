@@ -29,6 +29,8 @@ A diversity panel of NTHi strains was created from a database of genome sequence
 # NTHi biofilm development time course 
 RNA was extracted from diversity panel strains in shaking logarithmic phase, shaking stationary phase, and static early (6hr) biofilms or late supernatant (24hr) and biofilms (24hr; t=1:5; figure). Libraries were prepared using NEBNext Ultra II Directional RNA Library prep kit for Ilumina, and a CRISPR-based ribosomal RNA depletion protocol from JumpCode Genomics was used. RNA sequencing was performed on Illumina NextSeq500 at 1x75 nucleotides targeting 1 million reads per transcriptome.
 
+![divPanel expDesign](/home/jupyter-purplekestrel/repos/OMICS/projects/purpleKestrel/divPanel_expDesign.png)
+
 # pantranscriptome pipeline
 ## pangenome clustering
 Panaroo was used for [bacterial pangenome clustering](https://github.com/gtonkinhill/panaroo). Genes were clustered based on a 90% nucleotide identity (blastP threshold). The 90% strict setting was used as this is the most common (panaroo documents), and is useful for removing potential sources of contamination while retaining important genes. Stricter settings can be adjusted to identify rare plamids; this was not useful for the desired downstream analysis.
@@ -40,9 +42,11 @@ The [output from panaroo](https://gtonkinhill.github.io/panaroo/#/gettingstarted
 Each strain's genome sequence was used as its respective reference genome with genes defined by panaroo clusters. Reference genomes were acquired from NCBi or were determined by Pacbio long read sequencing at Drexel University’s Center for Advanced Microbial Processing. Reads were aligned to their reference genome and counts were generated using BEDTOOLS coverage. The resulting count table was imported into RStudio for DEG analysis.
 
 A custom snakemake pipeline was developed for sample processing and alignment.  
-
+![BWA snakemake](/home/jupyter-purplekestrel/repos/OMICS/projects/purpleKestrel/snakemake_workflow.png)
 ### salmon 
 Each strain’s transcriptome was used for pseudo aligning by Salmon. Transcriptomes were defined by panaroo clusters and subsetted for an individual strain to reduce off-target aligning. Pseudocounts were imported into RStudio using taxi port for DEG analysis. 
+
+![BWA vs Salmon DEGs](/home/jupyter-purplekestrel/repos/OMICS/projects/purpleKestrel/totalDEGS_Picture1.png)
 
 # diverse NTHi have complex population dynamics and phenotypic growth profiles
 These 12 strains were characterized in a variety of _in vitro_ phenotypic assays establishing quantitative traits such as growth rates, final planktonic optical density, biofilm biomass (crystal violet stain), response to pH changes, serum resistance, among others and **multi-antibiotic tolerance**. There were no obvious correlations between phenotypes and clinical isolation source, there were notably too few strains for an association study. Strains do vary in phenotypes _in vitro_ in all assays performed.
