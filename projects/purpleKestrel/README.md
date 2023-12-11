@@ -41,6 +41,8 @@ The [output from panaroo](https://gtonkinhill.github.io/panaroo/#/gettingstarted
 ### bwa
 Each strain's genome sequence was used as its respective reference genome with genes defined by panaroo clusters. Reference genomes were acquired from NCBi or were determined by Pacbio long read sequencing at Drexel University’s Center for Advanced Microbial Processing. Reads were aligned to their reference genome and counts were generated using BEDTOOLS coverage. The resulting count table was imported into RStudio for DEG analysis.
 
+**core genome n=1263 genes**
+
 A custom snakemake pipeline was developed for sample processing and alignment.  
 ![BWA snakemake](/home/jupyter-purplekestrel/repos/OMICS/projects/purpleKestrel/snakemake_workflow.png)
 ### salmon 
@@ -48,7 +50,23 @@ Each strain’s transcriptome was used for pseudo aligning by Salmon. Transcript
 
 ![BWA vs Salmon DEGs](/home/jupyter-purplekestrel/repos/OMICS/projects/purpleKestrel/totalDEGS_Picture1.png)
 
+| strain   | salmon genes |
+| -------- | --------- |
+| RdKW20   | 1633      |
+| 86-028Np | 1808      |
+| R2866    | 1820      |
+| SD537    | 1806      |
+| SD989    | 1830      |
+| SD993    | 1878      |
+| SD1117   | 1924      |
+| SD1200   | 1782      |
+| SD1430   | 1895      |
+| SD1474   | 1844      |
+| SD1566   |1722      |
+| SD1763   | 1737      |
+
+
 # diverse NTHi have complex population dynamics and phenotypic growth profiles
 These 12 strains were characterized in a variety of _in vitro_ phenotypic assays establishing quantitative traits such as growth rates, final planktonic optical density, biofilm biomass (crystal violet stain), response to pH changes, serum resistance, among others and **multi-antibiotic tolerance**. There were no obvious correlations between phenotypes and clinical isolation source, there were notably too few strains for an association study. Strains do vary in phenotypes _in vitro_ in all assays performed.
 
-# 
+# discussion
